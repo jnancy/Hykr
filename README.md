@@ -11,6 +11,6 @@ Introducing a brand new health/fitness social app! (with a unique name not found
 -  Provides trail search results using information from the Hikingproject Data API (an online hiking trails database) 
 -  Azure-based backend to pull data from our database of users to display the location of the user's friends
 
-### Extensibility:
+#### Extensibility:
 - can be updated to include facebook login/find friends functionalities
 - can create a whole suite of apps (e.g. Bykr, Walkr, Joggr) or combine multiple activities in one app
