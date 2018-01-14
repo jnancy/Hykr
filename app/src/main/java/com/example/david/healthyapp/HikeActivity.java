@@ -4,9 +4,11 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
 
 import com.squareup.picasso.Picasso;
 
@@ -42,6 +44,12 @@ public class HikeActivity extends MainActivity {
             layout.addView(imageView);
         }
     }
+
+    public void gotoResults(View view) {
+        ViewFlipper flipper = (ViewFlipper) findViewById(R.id.simpleViewFlipper);
+        flipper.showNext();
+    }
+
         /*for (int i = 0; i < 1; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setId(i);
