@@ -19,7 +19,6 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".SearchResults" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HikeActivity"></activity>
     </application>

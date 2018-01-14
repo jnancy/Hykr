@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.david.healthyapp.SearchResults">
+    tools:context="com.example.david.healthyapp.HikeActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -19,5 +19,20 @@
         android:textSize="23dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ScrollView
+        android:layout_width="350dp"
+        android:layout_height="615dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="615dp"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

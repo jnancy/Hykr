@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_gallery:
-                        newIntent = new Intent(getApplicationContext(), FriendsActivity.class);
+                        newIntent = new Intent(getApplicationContext(), HikeActivity.class);
                         startActivity(newIntent);
                         drawerLayout.closeDrawers();
                         break;
