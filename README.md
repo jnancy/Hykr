@@ -1,6 +1,6 @@
-# Hykr
+# Hykr :evergreen_tree:
 
-Introducing a brand new health/fitness social app! (with a unique name not found on google play store or the apple app store :wink: )
+Introducing a brand new health/fitness social app! (with a unique name not found in the Google's play store or the Apple's app store :wink: )
 
 #### Perks:
 - Perfect for active folks to plan and go on hikes with friends (especially suitable for Vancouver)
