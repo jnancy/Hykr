@@ -21,7 +21,8 @@
         <activity android:name=".FriendsActivity" />
         <activity android:name=".SearchResults" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HikeActivity"></activity>
+        <activity android:name=".HikeActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
