@@ -7,6 +7,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -23,7 +25,7 @@ public class SearchActivity extends MainActivity {
         getLayoutInflater().inflate(R.layout.activity_search, contentFrameLayout);
 
         List<String> list = new ArrayList<>();
-        list.add("https://cdn-files.apstatic.com/climb/106821891_smallMed_1494143342.jpg");
+        list.add("https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/wb-883316455302-Full-Image_GalleryBackground-en-US-1483994511251._RI_SX940_.jpg");
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.linear);
         for (int i = 0; i < 1; i++) {

@@ -6,9 +6,32 @@
     android:layout_height="match_parent"
     tools:context="com.example.david.healthyapp.SearchActivity">
 
-    <SearchView
-        android:layout_width="395dp"
-        android:layout_height="94dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="410dp"
+        android:layout_height="50dp"
+        android:background="#66bb6a"
+
+        android:paddingLeft="10dp"
+        android:paddingTop="6dp"
+        android:text="Search Results"
+        android:textColor="#FFF"
+        android:textSize="23dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ScrollView
+        android:layout_width="350dp"
+        android:layout_height="615dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="615dp"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

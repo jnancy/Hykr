@@ -4,9 +4,13 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.InputStream;
@@ -27,7 +31,25 @@ public class HikeActivity extends MainActivity {
         List<String> list = new ArrayList<>();
         list.add("https://cdn-files.apstatic.com/climb/106821891_smallMed_1494143342.jpg");
 
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.linear);
+        for (int i = 0; i < 1; i++) {
+            ImageView imageView = new ImageView(this);
+            imageView.setId(i);
+            imageView.setPadding(2, 2, 2, 2);
+            Picasso.with(this).load(list.get(i)).into(imageView);
+            //loadImageFromURL(list.get(i), imageView);
+            imageView.setMinimumWidth(350);
+            imageView.setMaxHeight(400);
+            layout.addView(imageView);
+        }
+    }
+
+    public void gotoResults(View view) {
+        ViewFlipper flipper = (ViewFlipper) findViewById(R.id.simpleViewFlipper);
+        flipper.showNext();
+    }
+
         /*for (int i = 0; i < 1; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setId(i);
@@ -37,12 +59,12 @@ public class HikeActivity extends MainActivity {
             imageView.setMaxHeight(400);
             layout.addView(imageView);
         }*/
-        ImageView imageView = new ImageView(this);
+        /*ImageView imageView = new ImageView(this);
         File file = new File("drawable/hike1.jpg");
-        //Image image = new Image(file.toURI().toString());
+        Image image = new Image(file.toURI().toString());
         //imageView.setImage(image);
-        //layout.addView(view);
-    }
+        layout.addView(view);*/
+    //}
 
     public boolean loadImageFromURL(String fileUrl,
                                     ImageView iv){
