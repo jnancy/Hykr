@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.david.healthyapp.SearchActivity">
 
+    <SearchView
+        android:layout_width="395dp"
+        android:layout_height="94dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>

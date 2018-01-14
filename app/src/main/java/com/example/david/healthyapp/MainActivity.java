@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.nav_slideshow:
-                        newIntent = new Intent(getApplicationContext(), SearchActivity.class);
+                        newIntent = new Intent(getApplicationContext(), MapsActivity.class);
                         startActivity(newIntent);
                         drawerLayout.closeDrawers();
                         break;
