@@ -16,10 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SideBar"
-            android:label="@string/title_activity_side_bar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>
