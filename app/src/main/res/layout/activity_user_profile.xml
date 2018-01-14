@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="0dp"
-        android:layout_height="268dp"
+        android:layout_height="240dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,8 +18,8 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="410dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="36dp"
         android:background="#66bb6a"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
@@ -29,19 +29,19 @@
         android:layout_width="293dp"
         android:layout_height="85dp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="15dp"
+        android:paddingLeft="10dp"
         android:text="i luv hiking because im a fit dude
 please hike with me frens"
         android:textColor="#555555"
-        android:textSize="17dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="176dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="204dp"
+        android:layout_width="143dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile" />
@@ -52,13 +52,13 @@ please hike with me frens"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="150dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"
         android:text="John Doe"
         android:textColor="#FFF"
         android:textSize="23dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="150dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -77,7 +77,8 @@ please hike with me frens"
 
     <ScrollView
         android:layout_width="395dp"
-        android:layout_height="220dp"
+        android:layout_height="270dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -89,60 +90,15 @@ please hike with me frens"
 
             <ImageView
                 android:id="@+id/hike1"
-                android:layout_width="190dp"
-                android:layout_height="121dp"
+                android:layout_width="350dp"
+                android:layout_height="400dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/hike2"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hike1" />
+                app:srcCompat="@drawable/hikes" />
 
-            <ImageView
-                android:id="@+id/hike2"
-                android:layout_width="190dp"
-                android:layout_height="150dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hike2" />
-
-            <ImageView
-                android:id="@+id/hike3"
-                android:layout_width="186dp"
-                android:layout_height="150dp"
-                android:layout_alignEnd="@+id/hike1"
-                android:layout_alignRight="@+id/hike1"
-                android:layout_below="@+id/hike1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hike3" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="186dp"
-                android:layout_height="200dp"
-                android:layout_alignLeft="@+id/hike2"
-                android:layout_alignStart="@+id/hike2"
-                android:layout_below="@+id/hike2"
-                android:layout_marginTop="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hike4" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="186dp"
-                android:layout_height="120dp"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/hike3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hike5" />
         </RelativeLayout>
     </ScrollView>
 

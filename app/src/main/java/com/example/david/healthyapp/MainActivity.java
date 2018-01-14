@@ -33,14 +33,23 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+                Intent newIntent;
                 switch (item.getItemId()) {
-
                     case R.id.nav_camera:
-                        Intent anIntent = new Intent(getApplicationContext(), UserProfile.class);
-                        startActivity(anIntent);
+                        newIntent = new Intent(getApplicationContext(), UserProfile.class);
+                        startActivity(newIntent);
                         drawerLayout.closeDrawers();
                         break;
-
+                    case R.id.nav_gallery:
+                        newIntent = new Intent(getApplicationContext(), FriendsActivity.class);
+                        startActivity(newIntent);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_slideshow:
+                        newIntent = new Intent(getApplicationContext(), SearchActivity.class);
+                        startActivity(newIntent);
+                        drawerLayout.closeDrawers();
+                        break;
                 }
                 return false;
             }
