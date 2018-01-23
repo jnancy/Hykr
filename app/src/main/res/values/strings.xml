@@ -9,4 +9,7 @@
     <string name="location_permission_denied">Permission denied a</string>
     <string name="permission_required_toast">Permission denied d</string>
     <string name="permission_rationale_location">Permission rationale location</string>
+
+    <string name="facebook_app_id">319148251909611</string>
+    <string name="fb_login_protocol_scheme">fb319148251909611</string>
 </resources>

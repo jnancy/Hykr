@@ -38,6 +38,7 @@
                 android:text=" Trail Length" />
 
             <SeekBar
+                android:id="@+id/seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -90,51 +91,32 @@
             tools:layout_editor_absoluteY="319dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/secondLayout"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="410dp"
-                android:layout_height="50dp"
-                android:background="#66bb6a"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="410dp"
+            android:layout_height="50dp"
+            android:background="#66bb6a"
 
-                android:paddingLeft="10dp"
-                android:paddingTop="6dp"
-                android:text="Search Results"
-                android:textColor="#FFF"
-                android:textSize="23dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            android:paddingLeft="10dp"
+            android:paddingTop="6dp"
+            android:text="Search Results"
+            android:textColor="#FFF"
+            android:textSize="23dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lvItems" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="615dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginStart="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+        <ListView
+            android:id="@+id/lvItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView3"
+            android:orientation="vertical"/>
+        </RelativeLayout>
 
-                <LinearLayout
-                    android:id="@+id/linear"
-                    android:layout_width="match_parent"
-                    android:layout_height="615dp"
-                    android:orientation="vertical">
-                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="900dp"
-                            app:srcCompat="@drawable/bloop"/>
-                    </RelativeLayout>
-
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
     </ViewFlipper>
 
 </android.support.constraint.ConstraintLayout>

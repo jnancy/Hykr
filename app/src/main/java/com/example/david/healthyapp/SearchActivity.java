@@ -1,65 +1,27 @@
 package com.example.david.healthyapp;
 
-import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import com.squareup.picasso.Picasso;
+import android.widget.ListView;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class SearchActivity extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame); //Remember this is the FrameLayout area within your activity_main.xml
+        FrameLayout contentFrameLayout = findViewById(R.id.content_frame); //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_search, contentFrameLayout);
-
-        List<String> list = new ArrayList<>();
-        list.add("https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/wb-883316455302-Full-Image_GalleryBackground-en-US-1483994511251._RI_SX940_.jpg");
-
-        LinearLayout layout = (LinearLayout) findViewById(R.id.linear);
-        for (int i = 0; i < 1; i++) {
-            ImageView imageView = new ImageView(this);
-            imageView.setId(i);
-            imageView.setPadding(2, 2, 2, 2);
-            loadImageFromURL(list.get(i), imageView);
-            imageView.setMinimumWidth(350);
-            imageView.setMaxHeight(400);
-            layout.addView(imageView);
-        }
-    }
-
-    public boolean loadImageFromURL(String fileUrl,
-                                    ImageView iv){
-        try {
-
-            URL myFileUrl = new URL (fileUrl);
-            HttpURLConnection conn =
-                    (HttpURLConnection) myFileUrl.openConnection();
-            conn.setDoInput(true);
-            conn.connect();
-
-            InputStream is = conn.getInputStream();
-            iv.setImageBitmap(BitmapFactory.decodeStream(is));
-
-            return true;
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return false;
+        // Construct the data source
+        ArrayList<Trail> arrayOfUsers = new ArrayList<>();
+        // Create the adapter to convert the array to views
+        CustomAdapter adapter = new CustomAdapter(this, arrayOfUsers);
+        // Attach the adapter to a ListView
+        ListView listView = findViewById(R.id.lvItems);
+        listView.setAdapter(adapter);
     }
 }
