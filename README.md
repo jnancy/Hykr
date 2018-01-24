@@ -8,8 +8,9 @@ Introducing a brand new health/fitness social app! (with a unique name not found
 
 #### Key Features:
 -  Google Maps API (displays user's current location + nearby hiking trails)
--  Provides trail search results using information from the Hikingproject Data API (an online hiking trails database) 
+-  Provides trail search results using information from the Hikingproject and Mountainproject Data APIs (two online hiking trails databases) 
 -  Azure-based backend to pull data from our database of users to display the location of the user's friends
+-  Facebook login - import your info from Facebook and connect with your hiker friends
 
 #### Extensibility:
 - can be updated to include facebook login/find friends functionalities
