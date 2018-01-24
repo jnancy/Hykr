@@ -146,7 +146,6 @@ public class MapsActivity extends MainActivity
         new MarkerTask().execute();
     }
 
-    @SuppressLint("StaticFieldLeak")
     private class MarkerTask extends AsyncTask<Void, Void, String> {
 
         private static final String LOG_TAG = "Hykr";
