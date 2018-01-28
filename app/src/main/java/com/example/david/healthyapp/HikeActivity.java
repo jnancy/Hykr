@@ -1,44 +1,104 @@
 package com.example.david.healthyapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import android.widget.ListView;
 
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.ViewFlipper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 
 public class HikeActivity extends MainActivity {
 
-//    public class Vars {
-//        SeekBar seekbar = findViewById(R.id.seekbar);
-//        int seekBarValue = seekbar.getProgress();
-//        private String url = "";
-//
-//        public Vars() {
-//            this.url = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=30&key=200207554-f9a3aa945fc91ca908d9be0f7ecd12ba"; // actually "set" the value.
-//        }
-//
-//        public String getUrl() {
-//            return url;
-//        }
-//
-//        public static void outputToTxt(Vars object) {
-//            url = object.getUrl();
-//            // ...
-//        }
-//    }
+    private SeekBar seekbar;
+    private Integer difficulty;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.content_frame); //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_hike, contentFrameLayout);
+        seekbar = findViewById(R.id.seekbar);
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
 
+        radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radioButtonEasy) {
+                    difficulty = 1;
+                }
+                if (checkedId == R.id.radioButtonMedium) {
+                    difficulty = 2;
+                }
+                if (checkedId == R.id.radioButtonHard) {
+                    difficulty = 3;
+                }
+            }
+        });
     }
+
+    @SuppressLint("StaticFieldLeak")
+    TrailAsync obj = new TrailAsync() {
+        @Override
+        protected void onPostExecute(String json) {
+            ArrayList<Trail> trails = new ArrayList<>();
+            int seekBarValue = seekbar.getProgress();
+            try {
+                JSONObject object = new JSONObject(json);
+                JSONArray jsonArray = object.getJSONArray("trails");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObj = jsonArray.getJSONObject(i);
+                    String name = jsonObj.getString("name");
+                    String length = jsonObj.getString("length");
+                    String tDifficulty = jsonObj.getString("difficulty");
+                    Double intLength = Double.valueOf(length);
+                    if (intLength <= seekBarValue) {
+                        if (difficulty == 1) {
+                            if (tDifficulty.contains("green")) {
+                                trails.add(new Trail(name, length, tDifficulty));
+                            }
+                        }
+                        if (difficulty == 2) {
+                            if (tDifficulty.contains("blue")) {
+                                trails.add(new Trail(name, length, tDifficulty));
+                            }
+                        }
+                        if (difficulty == 3) {
+                            if (tDifficulty.contains("black")) {
+                                trails.add(new Trail(name, length, tDifficulty));
+                            }
+                        }
+                    }
+                }
+
+                ViewFlipper flipper = findViewById(R.id.simpleViewFlipper);
+                flipper.showNext();
+                // Create the adapter to convert the array to views
+                CustomAdapter adapter = new CustomAdapter(getContextOfApplication(), trails);
+                // Attach the adapter to a ListView
+                ListView listView = findViewById(R.id.lvItems);
+                listView.setAdapter(adapter);
+            } catch (JSONException e) {
+                Log.e("ERROR: ", "Error processing JSON", e);
+            }
+        }
+
+    };
+
 
 
 //        LinearLayout layout = (LinearLayout) findViewById(R.id.linear);
@@ -53,16 +113,10 @@ public class HikeActivity extends MainActivity {
 //            layout.addView(imageView);
 
 
+
     public void gotoResults(View view) {
-        ViewFlipper flipper = findViewById(R.id.simpleViewFlipper);
-        flipper.showNext();
-        // Construct the data source
-        ArrayList<Trail> arrayOfTrails = new ArrayList<Trail>();
-// Create the adapter to convert the array to views
-        CustomAdapter adapter = new CustomAdapter(this, arrayOfTrails);
-// Attach the adapter to a ListView
-        ListView listView = findViewById(R.id.lvItems);
-        listView.setAdapter(adapter);
+
+        obj.execute();
     }
 }
 

@@ -24,7 +24,7 @@ public class CustomAdapter extends ArrayAdapter<Trail> {
         TextView firstLine = convertView.findViewById(R.id.firstLine);
         TextView secondLine = convertView.findViewById(R.id.secondLine);
         firstLine.setText(trail.name);
-        secondLine.setText(trail.length);
+        secondLine.setText(trail.length + " km");
 
         return convertView;
     }

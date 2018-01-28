@@ -18,7 +18,7 @@
             android:orientation="vertical" >
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="410dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#66bb6a"
 
@@ -56,23 +56,26 @@
                 android:text="  Trail Difficulty" />
 
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="100dp" >
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonEasy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Easy" />
 
                 <RadioButton
+                    android:id="@+id/radioButtonMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Medium" />
 
                 <RadioButton
+                    android:id="@+id/radioButtonHard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -96,7 +99,7 @@
             android:layout_height="match_parent">
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="410dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#66bb6a"
 

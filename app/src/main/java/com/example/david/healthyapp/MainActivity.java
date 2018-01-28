@@ -3,9 +3,6 @@ package com.example.david.healthyapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -31,8 +28,6 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -100,7 +95,6 @@ public class MainActivity extends AppCompatActivity
                                     Log.e("NAME:", name);
 
                                     String imageURLString = data.getJSONObject("picture").getJSONObject("data").getString("url");
-                                    URL imageURL = new URL (imageURLString);
 
                                     // Loads all desired variables into SharedPreferences
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -109,13 +103,26 @@ public class MainActivity extends AppCompatActivity
                                     editor.putString("url", imageURLString);
                                     editor.apply();
 
-                                    SharedPreferences prefs = sharedPreferences;
-                                    String restoredText = prefs.getString("fbName", "Default String");
-                                   // fbNameView.setText(restoredText);
+//                                    fbNameView.setText(name);
+//
+//                                    @SuppressLint("StaticFieldLeak")
+//                                    MyAsync obj = new MyAsync() {
+//
+//                                        @Override
+//                                        protected void onPostExecute(Bitmap bmp) {
+//                                            super.onPostExecute(bmp);
+//
+//                                            Bitmap bm = bmp;
+//
+//                                            final ImageView fbProfilePic = findViewById(R.id.imageView2);
+//                                            fbProfilePic.setImageBitmap(bm);
+//
+//                                        }
+//                                    };
+//                                    obj.execute();
+
                                     }
-                                catch (IOException e) {
-                                    e.printStackTrace();
-                                } catch (JSONException e) {
+                                catch (JSONException e) {
                                     e.printStackTrace();
                                 }
                             }

@@ -92,49 +92,6 @@ public class MapsActivity extends MainActivity
         }
     }
 
-
-//    @Override
-//    public void run() throws IOException {
-//        // Create URL
-//        URL webEndpoint = new URL("https://www.mountainproject.com/data/");
-//
-//        // Create connection
-//        HttpsURLConnection myConnection =
-//                (HttpsURLConnection) webEndpoint.openConnection();
-//        myConnection.setRequestProperty("User-Agent", "healthy-app-v0.1");
-//        if (myConnection.getResponseCode() == 200) {
-//            InputStreamReader responseBodyReader =
-//                    new InputStreamReader(responseBody, "UTF-8");
-//            JsonReader jsonReader = new JsonReader(responseBodyReader);
-//
-//            jsonReader.beginObject(); // Start processing the JSON object
-//            while (jsonReader.hasNext()) { // Loop through all keys
-//                String key = jsonReader.nextName(); // Fetch the next key
-//                if (key.equals("name")) { // Check if desired key
-//                    // Fetch the value as a String
-//                    // Make this accessible to onMapReady !!!!!!!!!!!!!!!!!!!!!!
-//                    String Name = jsonReader.nextString();
-//                    private String Name
-//                }
-//
-//                if (key.equals("longitude")) {
-//                    // Make this accessible to onMapReady !!!!!!!!!!!!!!!!!!!!!!
-//                    String Longitude = jsonReader.nextString();
-//                }
-//
-//
-//                if (key.equals("latitude")) {
-//                    // Make this accessible to onMapReady !!!!!!!!!!!!!!!!!!!!!!
-//                    String Latitude = jsonReader.nextString();
-//                } else {
-//                    jsonReader.skipValue(); // Skip values of other keys
-//                }
-//            }
-//        } else {
-//            // Error handling code goes here
-//        }
-//    }
-
     @Override
     public void onMapReady (GoogleMap map) {
         nMap = map;
@@ -200,10 +157,6 @@ public class MapsActivity extends MainActivity
                     Double longitude = jsonObj.getDouble("longitude");
                     Double stars = jsonObj.getDouble("stars");
 
-//                    final int nameID = getResources().getIdentifier(name, "id",
-//                            getPackageName());
-//                    final int ratingID = getResources().getIdentifier(String.valueOf(rating), "id",
-//                            getPackageName());
 
                     LatLng latLng = new LatLng(latitude, longitude);
 
@@ -216,28 +169,6 @@ public class MapsActivity extends MainActivity
 
         }
     }
-
-
-
-
-
-
-        // and move the map's camera to the same location.
-//        LatLng PoolBoy = new LatLng(49.3522, -123.2413);
-//        LatLng QueenOfCapilano = new LatLng(49.351, -123.3575);
-//        LatLng MobyDick = new LatLng(49.3521, -123.2288);
-//        LatLng Jenga = new LatLng(49.3521, -123.2288);
-//        LatLng AncientMariner = new LatLng(49.331, -123.2665);
-//        map.addMarker(new MarkerOptions().position(PoolBoy)
-//                .title("Pool Boy"));
-//        map.addMarker(new MarkerOptions().position(QueenOfCapilano)
-//                .title("Queen of Capilano"));
-//        map.addMarker(new MarkerOptions().position(MobyDick)
-//                .title("Moby Dick"));
-//        map.addMarker(new MarkerOptions().position(Jenga)
-//                .title("Jenga"));
-//        map.addMarker(new MarkerOptions().position(AncientMariner)
-//                .title("Ancient Mariner"));
 
     /**
      * Enables the My Location layer if the fine location permission has been granted.
