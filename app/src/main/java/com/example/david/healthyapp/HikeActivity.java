@@ -1,10 +1,12 @@
 package com.example.david.healthyapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 
 import android.widget.ListView;
@@ -19,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import android.widget.AdapterView.OnItemClickListener;
 
 
 public class HikeActivity extends MainActivity {
@@ -65,21 +68,24 @@ public class HikeActivity extends MainActivity {
                     String name = jsonObj.getString("name");
                     String length = jsonObj.getString("length");
                     String tDifficulty = jsonObj.getString("difficulty");
+                    String summary = jsonObj.getString("summary");
+                    String high = jsonObj.getString("high");
+                    String location = jsonObj.getString("location");
                     Double intLength = Double.valueOf(length);
                     if (intLength <= seekBarValue) {
                         if (difficulty == 1) {
                             if (tDifficulty.contains("green")) {
-                                trails.add(new Trail(name, length, tDifficulty));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
                             }
                         }
                         if (difficulty == 2) {
                             if (tDifficulty.contains("blue")) {
-                                trails.add(new Trail(name, length, tDifficulty));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
                             }
                         }
                         if (difficulty == 3) {
                             if (tDifficulty.contains("black")) {
-                                trails.add(new Trail(name, length, tDifficulty));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
                             }
                         }
                     }
@@ -90,8 +96,33 @@ public class HikeActivity extends MainActivity {
                 // Create the adapter to convert the array to views
                 CustomAdapter adapter = new CustomAdapter(getContextOfApplication(), trails);
                 // Attach the adapter to a ListView
-                ListView listView = findViewById(R.id.lvItems);
+                final ListView listView = findViewById(R.id.lvItems);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent i = new Intent(HikeActivity.this, TrailInfoWindow.class);
+
+                        Trail trail = (Trail ) parent.getItemAtPosition(position);
+                        String name = trail.name;
+                        String length = trail.length;
+                        String difficulty = trail.difficulty;
+                        String summary = trail.summary;
+                        String high = trail.high;
+                        String location = trail.location;
+
+                        i.putExtra("name", name);
+                        i.putExtra("length", length);
+                        i.putExtra("difficulty", difficulty);
+                        i.putExtra("summary", summary);
+                        i.putExtra("high", high);
+                        i.putExtra("location", location);
+
+                        startActivity (i);
+                    }
+                });
+
             } catch (JSONException e) {
                 Log.e("ERROR: ", "Error processing JSON", e);
             }

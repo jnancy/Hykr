@@ -4,11 +4,17 @@ public class Trail {
     String name;
     String length;
     String difficulty;
+    String summary;
+    String high;
+    String location;
 
-    public Trail(String name, String length, String difficulty) {
+    Trail(String name, String length, String difficulty, String summary, String high, String location) {
         this.name=name;
         this.length=length;
         this.difficulty=difficulty;
+        this.summary=summary;
+        this.high=high;
+        this.location=location;
 
     }
 
@@ -16,12 +22,12 @@ public class Trail {
         return name;
     }
 
-    public String getLength() {
-        return length;
-    }
-    public String getDifficulty() {
-        return length;
-    }
+//    public String getLength() {
+//        return length;
+//    }
+//    public String getDifficulty() {
+//        return length;
+//    }
 }
 
 
