@@ -1,12 +1,11 @@
 package com.example.david.healthyapp;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
-import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,8 +22,8 @@ public class TrailInfoWindow extends HikeActivity {
         String name;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                name= null;
+            if (extras == null) {
+                name = null;
             } else {
                 name = extras.getString("name");
             }
@@ -35,8 +34,8 @@ public class TrailInfoWindow extends HikeActivity {
         String length;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                length= null;
+            if (extras == null) {
+                length = null;
             } else {
                 length = extras.getString("length");
             }
@@ -47,8 +46,8 @@ public class TrailInfoWindow extends HikeActivity {
         String difficulty;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                difficulty= null;
+            if (extras == null) {
+                difficulty = null;
             } else {
                 difficulty = extras.getString("difficulty");
             }
@@ -59,8 +58,8 @@ public class TrailInfoWindow extends HikeActivity {
         String summary;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                summary= null;
+            if (extras == null) {
+                summary = null;
             } else {
                 summary = extras.getString("summary");
             }
@@ -71,8 +70,8 @@ public class TrailInfoWindow extends HikeActivity {
         String high;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                high= null;
+            if (extras == null) {
+                high = null;
             } else {
                 high = extras.getString("high");
             }
@@ -83,14 +82,31 @@ public class TrailInfoWindow extends HikeActivity {
         String location;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                location= null;
+            if (extras == null) {
+                location = null;
             } else {
                 location = extras.getString("location");
             }
         } else {
             location = (String) savedInstanceState.getSerializable("location");
         }
+
+        String imgMedium;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if (extras == null) {
+                imgMedium = null;
+            } else {
+                imgMedium = extras.getString("imgMedium");
+            }
+        } else {
+            imgMedium = (String) savedInstanceState.getSerializable("imgMedium");
+        }
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("CoverURL", imgMedium);
+        editor.apply();
+        Log.e("URL_RECEIVED", imgMedium);
 
         String lengthFinal = length + " km";
         String highFinal = high + " m";
@@ -118,5 +134,21 @@ public class TrailInfoWindow extends HikeActivity {
         HighView.setText(highFinal);
         LocationView.setText(location);
 
+        obj.execute();
+
     }
+
+    @SuppressLint("StaticFieldLeak")
+    TrailCoverAsync obj = new TrailCoverAsync() {
+        @Override
+        protected void onPostExecute(Bitmap bmp) {
+            super.onPostExecute(bmp);
+
+            Bitmap bm = bmp;
+
+            final ImageView CoverImage = findViewById(R.id.CoverImage);
+            CoverImage.setImageBitmap(bm);
+
+        }
+    };
 }

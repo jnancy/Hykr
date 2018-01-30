@@ -71,21 +71,22 @@ public class HikeActivity extends MainActivity {
                     String summary = jsonObj.getString("summary");
                     String high = jsonObj.getString("high");
                     String location = jsonObj.getString("location");
+                    String imgMedium = jsonObj.getString("imgMedium");
                     Double intLength = Double.valueOf(length);
                     if (intLength <= seekBarValue) {
                         if (difficulty == 1) {
                             if (tDifficulty.contains("green")) {
-                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location, imgMedium));
                             }
                         }
                         if (difficulty == 2) {
                             if (tDifficulty.contains("blue")) {
-                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location, imgMedium));
                             }
                         }
                         if (difficulty == 3) {
                             if (tDifficulty.contains("black")) {
-                                trails.add(new Trail(name, length, tDifficulty, summary, high, location));
+                                trails.add(new Trail(name, length, tDifficulty, summary, high, location, imgMedium));
                             }
                         }
                     }
@@ -111,6 +112,7 @@ public class HikeActivity extends MainActivity {
                         String summary = trail.summary;
                         String high = trail.high;
                         String location = trail.location;
+                        String imgMedium = trail.imgMedium;
 
                         i.putExtra("name", name);
                         i.putExtra("length", length);
@@ -118,6 +120,8 @@ public class HikeActivity extends MainActivity {
                         i.putExtra("summary", summary);
                         i.putExtra("high", high);
                         i.putExtra("location", location);
+                        i.putExtra("imgMedium", imgMedium);
+                        Log.e("IMG_URL", imgMedium);
 
                         startActivity (i);
                     }

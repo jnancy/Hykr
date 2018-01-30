@@ -7,14 +7,16 @@ public class Trail {
     String summary;
     String high;
     String location;
+    String imgMedium;
 
-    Trail(String name, String length, String difficulty, String summary, String high, String location) {
+    Trail(String name, String length, String difficulty, String summary, String high, String location, String imgMedium) {
         this.name=name;
         this.length=length;
         this.difficulty=difficulty;
         this.summary=summary;
         this.high=high;
         this.location=location;
+        this.imgMedium=imgMedium;
 
     }
 

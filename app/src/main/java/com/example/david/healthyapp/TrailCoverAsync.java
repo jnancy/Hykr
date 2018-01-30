@@ -1,24 +1,23 @@
 package com.example.david.healthyapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static android.content.Context.MODE_PRIVATE;
+public class TrailCoverAsync extends AsyncTask<Void, Void, Bitmap> {
 
-public class MyAsync extends AsyncTask<Void, Void, Bitmap> {
+    @SuppressLint("StaticFieldLeak")
+    private Context applicationContext = MainActivity.getContextOfApplication();
 
-    Context applicationContext = MainActivity.getContextOfApplication();
-
-    String restoredURL = PrefsUtils.getPreferenceValue(applicationContext, "url","default_url");
+    private String restoredURL = PrefsUtils.getPreferenceValue(applicationContext, "CoverURL","default_url");
 
     @Override
     protected Bitmap doInBackground(Void... params) {
